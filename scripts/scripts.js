@@ -74,3 +74,10 @@ function addLinks(){
     <a href="https://campus.unadmexico.mx/login/index.php" target="_blank"  class="fa-solid fa-chalkboard-user fa-3x">UNADM</a>    `
     ;
 };
+
+//function for searchbar
+
+
+//function for weather
+
+//function for NASA API

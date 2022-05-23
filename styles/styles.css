@@ -5,6 +5,7 @@ html{
     --timeAndWeatherColors :  #122738;
     --linksColors: rgb(33, 49, 68);
     --searchColors: rgb(52, 73, 102);
+    --clockColor: rgb(103, 114, 127);
 }
 body{
     display: grid;
@@ -52,6 +53,8 @@ body{
 #pageTimeWeather{
     grid-area: page;
     background-color: var(--timeAndWeatherColors);
+    color: var(--clockColor);
+    font-size: 3rem;
 }
 #pageLinks{
     grid-area: page;
@@ -80,5 +83,5 @@ body{
 a{
     color: blue;
     text-decoration: none;
-    
+
 }
