@@ -39,7 +39,10 @@ function linksClick(){
 function searchClick(){
     if(page.id != "pageSearch"){
         page.setAttribute("id", "pageSearch");
-    }else page.setAttribute("id", "page");
+    }else{
+        page.setAttribute("id", "page");
+        page.innerHTML = " ";
+    };
     console.log("2");
 };
 
@@ -81,3 +84,6 @@ function addLinks(){
 //function for weather
 
 //function for NASA API
+function nasaImage(){
+    
+};
