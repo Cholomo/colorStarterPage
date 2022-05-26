@@ -18,6 +18,12 @@ body{
     align-items: stretch;
     
 }
+
+/**
+
+Bar
+
+**/
 .bar,.page{
     display: flex;
     justify-content: center;
@@ -30,6 +36,12 @@ body{
     align-items: center;
     cursor: pointer;
 }
+
+/** 
+
+Bar properties
+
+**/
 #timeWeather{
     grid-area: landing;
     margin: 0;
@@ -44,6 +56,11 @@ body{
     grid-area: search;
     background:  var(--searchColors);
 }
+/** 
+
+Page
+
+**/
 #page{
     grid-area: page;
     background-color:  rgb(70, 90, 116);
@@ -84,4 +101,66 @@ a{
     color: blue;
     text-decoration: none;
 
+}
+/** 
+
+Button from Short Code
+**/
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.input {
+    padding: 10px;
+    width: 80px;
+    height: 60px;
+    background: none;
+    border: 4px solid #ffd52d;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+    font-size: 26px;
+    color: #ffd52d;
+    outline: none;
+    transition: .5s;
+}
+.box:hover input{
+    width: 350px;
+    background: #272133;
+    border-radius: 10px;
+    
+}
+.boxHover{
+    padding: 10px;
+    width: 350px;
+    height: 60px;
+    background: none;
+    border: 4px solid #ffd52d;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+    background: #272133;
+    font-size: 46px;
+    color: #ffd52d;
+    outline: none;
+
+}
+i{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(-50%,-50%);
+    font-size: 26px;
+    color: #ffd52d;
+    transition: .2s;
+}
+.box:hover i{
+    opacity: 0;
+    z-index: -1;
+}
+#SIH{
+    opacity: 0;
+    z-index: -1;
 }

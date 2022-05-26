@@ -39,6 +39,7 @@ function linksClick(){
 function searchClick(){
     if(page.id != "pageSearch"){
         page.setAttribute("id", "pageSearch");
+        searchBar();
     }else{
         page.setAttribute("id", "page");
         page.innerHTML = " ";
@@ -79,7 +80,25 @@ function addLinks(){
 };
 
 //function for searchbar
-
+function searchBar(){
+     intervalClock = null;
+     //this button isn't mine, credits go to Short Code 
+     //https://codepen.io/ShortCode/pen/jOrBeOw
+     page.innerHTML = `
+     <div class="box" >
+     <form name="search">
+         <input id="searchBox" type="text" class="input" name="txt">
+     </form>
+         <i class="fas fa-search" id="searchIcon"></i>
+ </div>`
+    const searchBox = document.getElementById('searchBox');
+    const searchIcon = document.getElementById('searchIcon')
+    searchBox.addEventListener("mouseleave", function(){
+        searchBox.setAttribute("class",  "boxHover");
+        searchIcon.setAttribute("id", "SIH");
+        
+    }) 
+}
 
 //function for weather
 
