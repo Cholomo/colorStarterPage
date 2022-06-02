@@ -5,6 +5,9 @@ const search = document.getElementById("search");
 const page = document.getElementById("page");
 var intervalClock;
 
+
+let nasaImageURL = nasaImage();
+
 //event listeners
 timeWeather.addEventListener("click",function(){ timeWeatherClick()});
 links.addEventListener("click",function(){linksClick()});
@@ -18,9 +21,7 @@ function timeWeatherClick(){
         page.setAttribute("id", "pageTimeWeather");
         intervalClock = setInterval(function(){time(), 1000});
     }else {
-        page.setAttribute("id", "page");
-        page.innerHTML = " ";
-        intervalClock = null;
+        clear();
         };
     console.log("1");
 
@@ -30,8 +31,8 @@ function linksClick(){
         page.setAttribute("id", "pageLinks");
         addLinks();
     }else {
-        page.setAttribute("id", "page");
-        page.innerHTML = " ";
+        clear();
+
     }
     console.log("2");
 };
@@ -41,11 +42,20 @@ function searchClick(){
         page.setAttribute("id", "pageSearch");
         searchBar();
     }else{
-        page.setAttribute("id", "page");
-        page.innerHTML = " ";
+        clear();
+
     };
     console.log("2");
 };
+
+//clear site
+function clear(){
+    page.setAttribute('id', 'page');
+    intervalClock = null;
+    page.innerHTML = " ";
+    console.log('clear');
+    setBackground(nasaImageURL);
+}
 
 //function for clock
 function time(){
@@ -85,24 +95,49 @@ function searchBar(){
      //this button isn't mine, credits go to Short Code 
      //https://codepen.io/ShortCode/pen/jOrBeOw
      page.innerHTML = `
-     <div class="box" >
-     <form name="search">
-         <input id="searchBox" type="text" class="input" name="txt">
+     <div class = "box" >
+     <form name = "search">
+         <input id = "searchBox" type = "text" class = "input" name = "txt">
      </form>
-         <i class="fas fa-search" id="searchIcon"></i>
+         <i class = "fas fa-search" id = "searchIcon"></i>
  </div>`
+/* 
+ <div id = "searchEngines">
+ <i class="fa-brands fa-google"></i>
+ <i class = "fa-brands fa-youtube" id = "youtube"></i>
+ <i class = "fa-solid fa-brain-circuit"></i>
+ </div> */
     const searchBox = document.getElementById('searchBox');
     const searchIcon = document.getElementById('searchIcon')
     searchBox.addEventListener("mouseleave", function(){
         searchBox.setAttribute("class",  "boxHover");
         searchIcon.setAttribute("id", "SIH");
-        
     }) 
+    const search = document.querySelector('.input');
+    /** search.addEventListener("input", (e)){
+
+    };**/
 }
 
 //function for weather
 
 //function for NASA API
-function nasaImage(){
-    
+async function nasaImage(){
+    //really bad convention but only way for it to work in github pages
+    let NASA_KEY = 'yb4k0TQ19Mvi9JjAEmKvIkkYweuWsuPhKhTWVeXc'
+    //should never do this with APIs nor critical information, better use .env
+    var response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`);
+    var responseJSON = await response.json();
+    return responseJSON;
 };
+
+
+//in case you want a background image
+function setBackground(data){
+    console.log('trying to set bg')
+    if(page.getAttribute('id') == 'page'){
+        console.log('so far so good');
+        console.log(toString(data.copyright));
+        page.style.backgroundImage = `url("${data.url}")`;
+    }
+}

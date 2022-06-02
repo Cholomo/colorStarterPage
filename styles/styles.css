@@ -46,7 +46,6 @@ Bar properties
     grid-area: landing;
     margin: 0;
     background-color: var(--timeAndWeatherColors);
-    color: white;
 }
 #links{
     grid-area: links;
@@ -107,9 +106,9 @@ a{
 Button from Short Code
 **/
 .box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    align-items: center;
+
     transform: translate(-50%,-50%);
 }
 .input {
@@ -164,3 +163,11 @@ i{
     opacity: 0;
     z-index: -1;
 }
+/** 
+
+Search Engines
+
+
+#searchEngines{
+
+}**/
